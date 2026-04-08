@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  # ── SRE Triage Agent ────────────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4318
+      - DATABASE_URL=sqlite+aiosqlite:///data/incidents.db
+    volumes:
+      - app-data:/app/data
+      - app-uploads:/app/uploads
+    depends_on:
+      jaeger:
+        condition: service_started
+    networks:
+      - sre-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  # ── Jaeger (OpenTelemetry traces) ───────────────────────────────────────
+  jaeger:
+    image: jaegertracing/all-in-one:1.62
+    ports:
+      - "16686:16686"   # Jaeger UI
+      - "4318:4318"     # OTLP HTTP receiver
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+      LOG_LEVEL: info
+    networks:
+      - sre-network
+
+networks:
+  sre-network:
+    driver: bridge
+
+volumes:
+  app-data:
+  app-uploads:
