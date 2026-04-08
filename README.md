@@ -74,7 +74,7 @@ This agent automates the full incident lifecycle:
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-user/sre-triage-agent.git
+git clone https://github.com/pinpacho/noobagents.git
 cd sre-triage-agent
 cp .env.example .env
 # Edit .env → set GOOGLE_API_KEY (required) and optionally ANTHROPIC_API_KEY

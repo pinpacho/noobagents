@@ -13,7 +13,7 @@ Get the SRE Triage Agent running in 5 minutes.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-user/sre-triage-agent.git
+git clone https://github.com/pinpacho/noobagents.git
 cd sre-triage-agent
 ```
 
