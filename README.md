@@ -75,7 +75,7 @@ This agent automates the full incident lifecycle:
 
 ```bash
 git clone https://github.com/pinpacho/noobagents.git
-cd sre-triage-agent
+cd noobagents
 cp .env.example .env
 # Edit .env → set GOOGLE_API_KEY (required) and optionally ANTHROPIC_API_KEY
 docker compose up --build

@@ -14,7 +14,7 @@ Get the SRE Triage Agent running in 5 minutes.
 
 ```bash
 git clone https://github.com/pinpacho/noobagents.git
-cd sre-triage-agent
+cd noobagents
 ```
 
 ### 2. Configure environment
