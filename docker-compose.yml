@@ -11,10 +11,9 @@ services:
       - .env
     environment:
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4318
-      - DATABASE_URL=sqlite+aiosqlite:///data/incidents.db
     volumes:
-      - app-data:/app/data
-      - app-uploads:/app/uploads
+      - ./data:/app/data
+      - ./uploads:/app/uploads
     depends_on:
       jaeger:
         condition: service_started
@@ -42,7 +41,3 @@ services:
 networks:
   sre-network:
     driver: bridge
-
-volumes:
-  app-data:
-  app-uploads:

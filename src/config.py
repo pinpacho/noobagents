@@ -30,7 +30,7 @@ class Settings(BaseSettings):
     claude_model: str = "claude-sonnet-4-20250514"
 
     # --- Database ---
-    database_url: str = "sqlite+aiosqlite:///data/incidents.db"
+    database_url: str = "sqlite+aiosqlite:///./data/incidents.db"
 
     # --- Observability ---
     otel_exporter_otlp_endpoint: str = "http://localhost:4318"
