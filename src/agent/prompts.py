@@ -1,4 +1,4 @@
-"""System prompts for the SRE triage agent."""
+"""System prompts for the SRE NOOBS Agent."""
 
 from __future__ import annotations
 

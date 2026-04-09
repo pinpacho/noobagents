@@ -1,4 +1,4 @@
-# SRE Incident Intake & Triage Agent
+# SRE Incident Intake & NOOBS Agent
 
 An AI-powered agent that automates incident intake, triage, ticketing, and notifications for e-commerce platforms running on the Microsoft eShop (.NET) microservice architecture.
 
@@ -30,7 +30,7 @@ This agent automates the full incident lifecycle:
                     └────────────┬─────────────┘
                                  │
                     ┌────────────▼─────────────┐
-                    │  Pydantic AI Triage Agent │
+                    │  Pydantic AI NOOBS Agent │
                     │  ┌─────────────────────┐  │
                     │  │ Gemini 2.5 Flash-Lite    │  │
                     │  │ (orchestration)     │  │
@@ -116,7 +116,7 @@ src/
 ├── main.py                # FastAPI app entry-point
 ├── config.py              # Pydantic BaseSettings
 ├── api/                   # Routes, request/response models
-├── agent/                 # Pydantic AI triage agent + tools
+├── agent/                 # Pydantic AI NOOBS Agent + tools
 ├── knowledge/             # eShop service catalog, severity rules
 ├── integrations/          # Ticketing (mock), Slack, Email
 ├── middleware/             # Guardrails, validation, error handling

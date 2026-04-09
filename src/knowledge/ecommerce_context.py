@@ -1,7 +1,7 @@
 """Embedded knowledge base for Microsoft eShop (.NET) architecture.
 
 Provides service catalog, common failure patterns, and observability
-context so the triage agent can correlate incidents with specific
+context so the NOOBS Agent can correlate incidents with specific
 e-commerce microservices.
 """
 

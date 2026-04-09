@@ -1,7 +1,7 @@
 [project]
 name = "sre-triage-agent"
 version = "0.1.0"
-description = "Production-ready SRE Incident Intake & Triage Agent for e-commerce platforms"
+description = "Production-ready SRE Incident Intake & NOOBS Agent for e-commerce platforms"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"

@@ -1,10 +1,10 @@
-# AGENTS_USE.md — SRE Incident Intake & Triage Agent
+# AGENTS_USE.md — SRE Incident Intake & NOOBS Agent
 
 ## 1. Agent Overview
 
 | Field | Value |
 |-------|-------|
-| **Name** | SRE Incident Intake & Triage Agent |
+| **Name** | SRE Incident Intake & NOOBS Agent |
 | **Purpose** | Automate the full incident lifecycle — intake, AI-powered triage, ticket creation, team notifications, and resolution tracking — for e-commerce platforms running on Microsoft eShop (.NET) microservices |
 | **Tech Stack** | FastAPI, Pydantic AI 0.8, Gemini 2.5 Flash-Lite, Claude Sonnet, SQLite (async), OpenTelemetry, Prometheus |
 | **Input** | Text description + optional image/log file attachment |
@@ -28,13 +28,13 @@ The agent reduces mean-time-to-acknowledgement (MTTA) from minutes to seconds:
 
 ## 2. Agents & Capabilities
 
-### 2.1 Core Triage Agent
+### 2.1 Core NOOBS Agent
 
 The system uses a **single Pydantic AI agent** with four specialised tools, orchestrated by Gemini 2.5 Flash-Lite. The agent produces a structured `TriageResult` output with guaranteed schema compliance.
 
 ```
 ┌────────────────────────────────────────┐
-│      Pydantic AI Triage Agent          │
+│      Pydantic AI NOOBS Agent          │
 │      Model: Gemini 2.5 Flash-Lite           │
 │      Output: TriageResult (typed)      │
 │                                        │
@@ -116,7 +116,7 @@ Client ──POST /incidents/submit──▶ FastAPI
                         │  │ a. Pre-process attach.  │ │
                         │  │    (Gemini/Claude)      │ │
                         │  ├────────────────────────┤ │
-                        │  │ b. Run triage agent     │ │
+                        │  │ b. Run NOOBS Agent     │ │
                         │  │    (Gemini Flash +      │ │
                         │  │     4 tools)            │ │
                         │  ├────────────────────────┤ │

@@ -42,7 +42,7 @@ POST /incidents/submit
   → Return 201 immediately
   → Background pipeline kicks off:
       1. Pre-process attachment with Gemini Flash or Claude Sonnet (src/utils/multimodal.py)
-      2. Run Pydantic AI triage agent (src/agent/triage_agent.py)
+      2. Run Pydantic AI NOOBS Agent (src/agent/triage_agent.py)
       3. Create mock Jira ticket (src/integrations/ticketing.py)
       4. Notify team via Slack + email (src/integrations/slack.py, email.py)
       5. Update incident status at each step

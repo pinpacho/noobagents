@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 
 class TriageResult(BaseModel):
-    """Structured output produced by the triage agent."""
+    """Structured output produced by the NOOBS Agent."""
 
     severity: str = Field(
         description="Severity level: P0 | P1 | P2 | P3 | P4"

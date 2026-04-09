@@ -1,6 +1,6 @@
 """Common failure patterns across the eShop platform.
 
-Used by the triage agent to quickly match incoming incidents against
+Used by the NOOBS Agent to quickly match incoming incidents against
 known issues and suggest mitigations.
 """
 

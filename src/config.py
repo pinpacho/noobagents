@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     )
 
     # --- Application ---
-    app_name: str = "SRE Triage Agent"
+    app_name: str = "SRE NOOBS Agent"
     app_version: str = "0.1.0"
     log_level: str = "INFO"
     debug: bool = False

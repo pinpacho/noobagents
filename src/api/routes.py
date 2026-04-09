@@ -1,4 +1,4 @@
-"""FastAPI route definitions for the SRE Triage Agent."""
+"""FastAPI route definitions for the SRE NOOBS Agent."""
 
 from __future__ import annotations
 
@@ -187,7 +187,7 @@ async def _run_triage_pipeline(
         await update_incident(incident_id, status=IncidentStatus.ANALYZING)
         await add_timeline_event(incident_id, "Triage started")
 
-        # 1. Run the AI triage agent
+        # 1. Run the AI NOOBS Agent
         triage = await run_triage(
             incident_id=incident_id,
             description=description,

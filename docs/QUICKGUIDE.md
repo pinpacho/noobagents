@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get the SRE Triage Agent running in 5 minutes.
+Get the SRE NOOBS Agent running in 5 minutes.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ curl http://localhost:8000/health
 
 Expected:
 ```json
-{"status": "ok", "version": "0.1.0", "service": "SRE Triage Agent"}
+{"status": "ok", "version": "0.1.0", "service": "SRE NOOBS Agent"}
 ```
 
 ---

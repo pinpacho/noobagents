@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-The SRE Triage Agent is currently architected for single-instance deployment with SQLite, processing ~100 incidents/day. This document analyses the bottlenecks and presents a concrete scaling roadmap to handle **10,000+ incidents/day** across multiple regions.
+The SRE NOOBS Agent is currently architected for single-instance deployment with SQLite, processing ~100 incidents/day. This document analyses the bottlenecks and presents a concrete scaling roadmap to handle **10,000+ incidents/day** across multiple regions.
 
 ---
 

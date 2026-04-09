@@ -1,4 +1,4 @@
-"""Core SRE Triage Agent built with Pydantic AI.
+"""Core SRE NOOBS Agent built with Pydantic AI.
 
 Uses Gemini 2.0 Flash for orchestration and fast triage, with optional
 escalation to Claude Sonnet for complex log/image analysis.

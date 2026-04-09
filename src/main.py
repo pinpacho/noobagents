@@ -24,13 +24,13 @@ logger = logging.getLogger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup / shutdown lifecycle."""
-    logger.info("Starting SRE Triage Agent")
+    logger.info("Starting SRE NOOBS Agent")
     setup_tracing()
     await init_db()
     yield
     await close_db()
     shutdown_tracing()
-    logger.info("SRE Triage Agent stopped")
+    logger.info("SRE NOOBS Agent stopped")
 
 
 def create_app() -> FastAPI:
@@ -39,7 +39,7 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.app_name,
         version=settings.app_version,
-        description="Production-ready SRE Incident Intake & Triage Agent for e-commerce platforms",
+        description="Production-ready SRE Incident Intake & NOOBS Agent for e-commerce platforms",
         lifespan=lifespan,
     )
 
