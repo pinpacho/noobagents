@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 class SlackNotificationService(NotificationService):
-    """Posts messages to Slack via incoming webhook."""
+    """Posts messages to Discord via incoming webhook."""
 
     async def send(
         self,
@@ -27,32 +27,20 @@ class SlackNotificationService(NotificationService):
         body: str,
     ) -> NotificationResult:
         settings = get_settings()
-        webhook_url = settings.slack_webhook_url
+        webhook_url = settings.discord_webhook_url
 
-        payload = {
-            "channel": recipient,
-            "username": "SRE Triage Agent",
-            "icon_emoji": ":rotating_light:",
-            "blocks": [
-                {
-                    "type": "header",
-                    "text": {"type": "plain_text", "text": subject},
-                },
-                {
-                    "type": "section",
-                    "text": {"type": "mrkdwn", "text": body},
-                },
-            ],
-        }
+        # Discord expects simple markdown content
+        content = f"**{subject}**\n\n{body}"
+        payload = {"content": content}
 
         if not webhook_url:
             # Mock mode
             logger.info(
-                "[MOCK] Slack notification",
+                "[MOCK] Discord notification",
                 extra={"channel": recipient, "subject": subject, "body": body[:200]},
             )
             return NotificationResult(
-                channel="slack",
+                channel="discord",
                 success=True,
                 message=f"[MOCK] Sent to {recipient}",
                 recipient=recipient,
@@ -62,20 +50,20 @@ class SlackNotificationService(NotificationService):
             async with httpx.AsyncClient(timeout=10) as client:
                 resp = await client.post(webhook_url, json=payload)
                 resp.raise_for_status()
-            logger.info("Slack notification sent", extra={"channel": recipient})
+            logger.info("Discord notification sent", extra={"channel": recipient})
             return NotificationResult(
-                channel="slack",
+                channel="discord",
                 success=True,
                 message="Sent",
                 recipient=recipient,
             )
         except Exception as exc:
             logger.error(
-                "Slack notification failed",
+                "Discord notification failed",
                 extra={"channel": recipient, "error": str(exc)},
             )
             return NotificationResult(
-                channel="slack",
+                channel="discord",
                 success=False,
                 message=str(exc),
                 recipient=recipient,

@@ -23,7 +23,7 @@ class Settings(BaseSettings):
 
     # --- LLM: Gemini (primary – fast/cheap tasks) ---
     google_api_key: str = ""
-    gemini_model: str = "gemini-2.0-flash"
+    gemini_model: str = "gemini-2.5-flash-lite"
 
     # --- LLM: Claude (complex analysis) ---
     anthropic_api_key: str = ""
@@ -37,7 +37,7 @@ class Settings(BaseSettings):
     otel_service_name: str = "sre-triage-agent"
 
     # --- Integrations ---
-    slack_webhook_url: str = ""
+    discord_webhook_url: str = ""
     smtp_host: str = ""
     smtp_port: int = 587
     smtp_user: str = ""
