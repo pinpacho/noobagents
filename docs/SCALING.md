@@ -13,7 +13,7 @@ The SRE Triage Agent is currently architected for single-instance deployment wit
 | API Server | FastAPI (single process, uvicorn) | ~50 req/s | CPU-bound triage |
 | Database | SQLite (aiosqlite) | ~100 writes/s | Single writer lock |
 | Task Queue | FastAPI BackgroundTasks | ~10 concurrent | In-process, no persistence |
-| LLM (fast) | Gemini 2.0 Flash | ~30 req/s (API limit) | Rate limiting |
+| LLM (fast) | Gemini 2.5 Flash-Lite | ~30 req/s (API limit) | Rate limiting |
 | LLM (deep) | Claude Sonnet | ~10 req/s (API limit) | Rate limiting + cost |
 | Knowledge Base | In-memory dict (5 services) | Unlimited | Memory per process |
 | File Storage | Local disk volume | ~10 GB | Disk I/O |

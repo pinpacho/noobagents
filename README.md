@@ -11,7 +11,7 @@ Manual incident triage is slow and error-prone. On-call engineers spend valuable
 This agent automates the full incident lifecycle:
 
 1. **Multimodal Ingestion** — Accepts text descriptions + screenshots or log files
-2. **AI-Powered Triage** — Gemini 2.0 Flash classifies severity (P0–P4) using eShop domain knowledge; Claude Sonnet handles deep log analysis
+2. **AI-Powered Triage** — Gemini 2.5 Flash-Lite classifies severity (P0–P4) using eShop domain knowledge; Claude Sonnet handles deep log analysis
 3. **Automated Ticketing** — Creates structured Jira tickets with root-cause hypothesis and mitigation steps
 4. **Multi-Channel Notifications** — Alerts the on-call team via Slack and email
 5. **Resolution Flow** — Notifies the original reporter when the incident is resolved
@@ -32,7 +32,7 @@ This agent automates the full incident lifecycle:
                     ┌────────────▼─────────────┐
                     │  Pydantic AI Triage Agent │
                     │  ┌─────────────────────┐  │
-                    │  │ Gemini 2.0 Flash    │  │
+                    │  │ Gemini 2.5 Flash-Lite    │  │
                     │  │ (orchestration)     │  │
                     │  └─────────────────────┘  │
                     │  Tools:                    │
@@ -61,7 +61,7 @@ This agent automates the full incident lifecycle:
 |-------|-----------|
 | **API** | FastAPI (Python 3.12) |
 | **Agent** | Pydantic AI 0.8 |
-| **LLM (fast)** | Gemini 2.0 Flash |
+| **LLM (fast)** | Gemini 2.5 Flash-Lite |
 | **LLM (deep)** | Claude Sonnet 3.5 |
 | **Database** | SQLite (async via aiosqlite) |
 | **Tracing** | OpenTelemetry → Jaeger |

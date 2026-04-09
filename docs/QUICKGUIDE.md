@@ -5,7 +5,7 @@ Get the SRE Triage Agent running in 5 minutes.
 ## Prerequisites
 
 - Docker & Docker Compose
-- A Google API key (for Gemini 2.0 Flash) — [Get one here](https://aistudio.google.com/apikey)
+- A Google API key (for Gemini 2.5 Flash-Lite) — [Get one here](https://aistudio.google.com/apikey)
 - (Optional) An Anthropic API key for deep log analysis with Claude Sonnet
 
 ## Setup

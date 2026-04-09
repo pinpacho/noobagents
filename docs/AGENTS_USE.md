@@ -6,7 +6,7 @@
 |-------|-------|
 | **Name** | SRE Incident Intake & Triage Agent |
 | **Purpose** | Automate the full incident lifecycle — intake, AI-powered triage, ticket creation, team notifications, and resolution tracking — for e-commerce platforms running on Microsoft eShop (.NET) microservices |
-| **Tech Stack** | FastAPI, Pydantic AI 0.8, Gemini 2.0 Flash, Claude Sonnet, SQLite (async), OpenTelemetry, Prometheus |
+| **Tech Stack** | FastAPI, Pydantic AI 0.8, Gemini 2.5 Flash-Lite, Claude Sonnet, SQLite (async), OpenTelemetry, Prometheus |
 | **Input** | Text description + optional image/log file attachment |
 | **Output** | Structured triage (severity P0–P4, affected service, root cause hypothesis, mitigation steps) + Jira ticket + Slack/email alerts |
 
@@ -19,7 +19,7 @@ Manual incident triage costs 5–15 minutes per incident. On-call engineers spen
 The agent reduces mean-time-to-acknowledgement (MTTA) from minutes to seconds:
 
 1. **Multimodal Ingestion** — Accepts text + screenshots or log files via a single API call
-2. **AI-Powered Triage** — Gemini 2.0 Flash classifies severity using embedded eShop domain knowledge; Claude Sonnet handles deep log/image analysis for complex incidents
+2. **AI-Powered Triage** — Gemini 2.5 Flash-Lite classifies severity using embedded eShop domain knowledge; Claude Sonnet handles deep log/image analysis for complex incidents
 3. **Automated Ticketing** — Creates structured Jira tickets with root-cause hypothesis and ordered mitigation steps
 4. **Multi-Channel Notifications** — Alerts the on-call team via Slack and email with full context
 5. **Resolution Flow** — When the incident is resolved, notifies the original reporter automatically
@@ -30,12 +30,12 @@ The agent reduces mean-time-to-acknowledgement (MTTA) from minutes to seconds:
 
 ### 2.1 Core Triage Agent
 
-The system uses a **single Pydantic AI agent** with four specialised tools, orchestrated by Gemini 2.0 Flash. The agent produces a structured `TriageResult` output with guaranteed schema compliance.
+The system uses a **single Pydantic AI agent** with four specialised tools, orchestrated by Gemini 2.5 Flash-Lite. The agent produces a structured `TriageResult` output with guaranteed schema compliance.
 
 ```
 ┌────────────────────────────────────────┐
 │      Pydantic AI Triage Agent          │
-│      Model: Gemini 2.0 Flash           │
+│      Model: Gemini 2.5 Flash-Lite           │
 │      Output: TriageResult (typed)      │
 │                                        │
 │  Tools:                                │
@@ -63,7 +63,7 @@ The agent uses **two LLMs** selected per-task for optimal cost and quality:
 
 | Model | Use Case | Cost | Latency |
 |-------|----------|------|---------|
-| **Gemini 2.0 Flash** | Agent orchestration, fast triage, ticketing, notifications | ~$0.075/1M tokens | ~1–3s |
+| **Gemini 2.5 Flash-Lite** | Agent orchestration, fast triage, ticketing, notifications | ~$0.075/1M tokens | ~1–3s |
 | **Claude Sonnet** | Deep log analysis, image analysis for complex incidents, root-cause identification | ~$3/1M tokens | ~3–8s |
 
 **Routing logic** (`src/utils/multimodal.py`):
